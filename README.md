@@ -1,2 +1,2 @@
 # Infra
-Infra server for Care microservice
+Infra server for Care microservice.
