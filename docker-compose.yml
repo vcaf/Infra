@@ -51,10 +51,10 @@ services:
     container_name: "backend-user-medicine"
     ports:
       - 5005:80
-    environment:
-      ASPNETCORE_ENVIRONMENT: Staging
     expose:
       - "5005"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
     links:
       - mongo
 
