@@ -22,65 +22,38 @@ services:
     hostname: rabbitmq
 
   care-medicine-inventory:
-    image: "vcaf/care-medicine-inventory"
-    # restart: on-failure
+    image: "vcaf/care-medicine-inventory:latest"
     container_name: "care-medicine-inventory"
     ports:
       - 5001:80
-    # expose:
-    #   - "5001"
-    # environment:
-    #   - GET_HOSTS_FROM=dns
     environment:
       ASPNETCORE_ENVIRONMENT: Staging
-      # - name: GET_HOSTS_FROM
-      #   value: dns
     labels:
       kompose.service.type: LoadBalancer
     links:
       - mongo
 
   care-user-medicine-inventory:
-    image: "vcaf/care-user-medicine-inventory"
-    # restart: on-failure
+    image: "vcaf/care-user-medicine-inventory:latest"
     container_name: "care-user-medicine-inventory"
     ports:
       - 5005:80
     environment:
       ASPNETCORE_ENVIRONMENT: Staging
-    # expose:
-    #   - "5005"
-    # environment:
-    #   - GET_HOSTS_FROM=dns
     labels:
       kompose.service.type: LoadBalancer
-    # environment_as_map:
-    #   environment:
-
-    # # environment:
-    #     - ASPNETCORE_ENVIRONMENT: Staging
-    #     - name: GET_HOSTS_FROM
-    #       value: dns
     links:
       - mongo
 
   care-frontend:
     image: "vcaf/care-frontend"
-    # restart: on-failure
     container_name: "care-frontend"
-    # depends_on:
-    #   backend-medicine:
-    #     condition: service_started
-    #   backend-user-medicine:
-    #     condition: service_started
     ports:
       - 3030:3030
     environment:
       - GET_HOSTS_FROM=dns
     labels:
       kompose.service.type: LoadBalancer
-    # expose:
-    #   - "3030"
       
 volumes:
   mongodbdata:
