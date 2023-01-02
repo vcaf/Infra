@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: care-user-medicine-inventory
-          image: vcaf/care-user-medicine-inventory:latest
+          image: victoriafongacr.azurecr.io/care-user-medicine-inventory:v3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
