@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: care-frontend-tcp
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: care-frontend
   ports:

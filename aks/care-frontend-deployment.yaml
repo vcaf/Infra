@@ -15,8 +15,8 @@ spec:
         app: care-frontend
     spec:
       containers:
-        - name: care-medicine-inventory
-          image: vcaf/care-frontend:latest
+        - name: care-frontend-inventory
+          image: victoriafongacr.azurecr.io/care-frontend:v4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3030
