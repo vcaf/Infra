@@ -1,19 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
-    kompose.service.type: LoadBalancer
-    kompose.version: 1.27.0 (b0ed6a2c9)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: care-medicine-inventory-tcp
   name: care-medicine-inventory-tcp
 spec:
-  ports:
-    - name: "5001"
-      port: 80
-      protocol: TCP
-  selector:
-    io.kompose.service: care-medicine-inventory
   type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+  selector:
+    app: care-medicine-inventory
