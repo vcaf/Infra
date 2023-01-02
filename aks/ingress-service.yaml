@@ -1,0 +1,23 @@
+﻿apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /medicines
+            pathType: Prefix
+            backend:
+              service:
+                name: care-medicine-inventory-tcp
+                port:
+                  number: 80
+          - path: /prescription
+            pathType: Prefix
+            backend:
+              service:
+                name: care-user-medicine-inventory-tcp
+                port:
+                  number: 80
