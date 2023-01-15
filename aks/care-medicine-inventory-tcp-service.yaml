@@ -4,8 +4,8 @@ metadata:
   name: care-medicine-inventory-tcp
 spec:
   type: NodePort
+  selector:
+    app: care-medicine-inventory
   ports:
     - protocol: TCP
       port: 80
-  selector:
-    app: care-medicine-inventory
